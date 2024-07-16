@@ -54,7 +54,7 @@ public class ConversationManager
         int index = 1;
         foreach (var file in files)
         {
-            conversations[index++] = Path.GetFileName(file);
+            conversations[index++] = Path.GetFileNameWithoutExtension(file);
         }
         return conversations;
     }

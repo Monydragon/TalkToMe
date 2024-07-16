@@ -59,7 +59,7 @@ class Program
                         Console.WriteLine("Enter the number of the conversation to load:");
                         if (int.TryParse(Console.ReadLine(), out int loadChoice) && conversations.ContainsKey(loadChoice))
                         {
-                            conversationHistory = conversationManager.LoadConversation(conversations[loadChoice]);
+                            conversationHistory = conversationManager.LoadConversation(conversations[loadChoice]+".json");
                             conversationName = conversations[loadChoice];
                             shouldExit = true;
                         }
@@ -106,9 +106,9 @@ class Program
         }
         
         Console.WriteLine("Chatbot is ready. Type 'exit' to quit.");
-        Console.ForegroundColor = ConsoleColor.Cyan;  // Set user message color
         while (true)
         {
+            Console.ForegroundColor = ConsoleColor.Cyan;  // Set user message color
             Console.Write("You: ");
             string input = Console.ReadLine();
             if (input.ToLower() == "exit")
